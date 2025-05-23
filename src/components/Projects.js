@@ -11,38 +11,42 @@ export default function Projects() {
         <div className="flex flex-col w-full mb-20">
           <CodeBracketIcon className="mx-auto inline-block w-10 mb-4" />
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Apps I've Built
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-            facilis repellat ab cupiditate alias vero aliquid obcaecati quisquam
-            fuga dolore.
-          </p>
+            Projects I've Contributed To
+            </h1>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            As a front-end developer, I’ve played a key role in building and enhancing several web applications. From implementing new features and improving user interfaces to debugging and optimizing code, these projects reflect my hands-on experience in real-world development using JavaScript and PHP. Below are some of the websites and systems I’ve helped bring to life.
+            </p>
         </div>
         <div className="flex flex-wrap -m-4">
-          {projects.map((project) => (
-            <a
-              href={project.link}
-              key={project.image}
-              className="sm:w-1/2 w-100 p-4">
-              <div className="flex relative">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  src={project.image}
-                />
-                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
-                    {project.subtitle}
-                  </h2>
-                  <h1 className="title-font text-lg font-medium text-white mb-3">
-                    {project.title}
-                  </h1>
-                  <p className="leading-relaxed">{project.description}</p>
+            {projects.map((project) => (
+                <a
+                href={project.link}
+                key={project.image}
+                className="sm:w-1/2 w-full p-4 group"
+                >
+                <div className="relative overflow-hidden rounded-lg shadow-lg h-62 sm:h-75">
+                    {/* IMAGE */}
+                    <img
+                    alt="gallery"
+                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                    src={project.image}
+                    />
+
+                    {/* OVERLAY */}
+                    <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center px-6 text-center">
+                    <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
+                        {project.subtitle}
+                    </h2>
+                    <h1 className="title-font text-lg font-medium text-white mb-3">
+                        {project.title}
+                    </h1>
+                    <p className="leading-relaxed text-white overflow-y-auto max-h-full">
+                        {project.description}
+                    </p>
+                    </div>
                 </div>
-              </div>
-            </a>
-          ))}
+                </a>
+            ))}
         </div>
       </div>
     </section>

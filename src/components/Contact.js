@@ -73,9 +73,9 @@ export default function Contact() {
           <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me
           </h2>
-          <p className="leading-relaxed mb-5">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-            suscipit officia aspernatur veritatis. Asperiores, aliquid?
+          <p className="leading-relaxed mb-5 text-gray-300">
+            I'm passionate about crafting clean, efficient, and user-friendly web applications. Whether you need a dedicated front-end developer to build responsive and user-friendly web applications, an efficient IT asset manager to oversee hardware and software inventories, a meticulous data entry specialist to maintain accurate records, or an organized office staff member to streamline daily operations, I bring a versatile skill set and a strong work ethic to every role.  
+            I am committed to delivering high-quality results, improving workflows, and supporting your team’s success through both technical expertise and administrative proficiency. Let’s connect and discuss how I can contribute to your projects and business goals.
           </p>
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-400">
