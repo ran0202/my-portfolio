@@ -17,5 +17,5 @@ code {
     monospace;
 }
 .my-image {
-  background-blend-mode: soft-light;
+  background-blend-mode: multiply;
 }
