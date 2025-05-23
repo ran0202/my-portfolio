@@ -31,12 +31,12 @@ export default function About() {
             </a>
           </div>
         </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 bg-gray-100 p-4 rounded-full">
-            <img
-                className="object-cover object-center rounded-full w-60 h-60"
-                alt="Me"
-                src="/IMG_9205.jpg"
-            />
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img
+        className="object-cover object-center rounded-full my-image w-60 h-61"
+        alt="Me"
+        src="/IMG_9205.jpg"
+        />
         </div>
       </div>
     </section>
