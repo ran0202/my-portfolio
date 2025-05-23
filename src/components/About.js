@@ -24,16 +24,22 @@ export default function About() {
               Work With Me
             </a>
             <a
-              href="#projects"
+              href="#employment"
               className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg"
             >
               See My Past Work
+            </a>
+            <a
+              href="#projects"
+              className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg"
+            >
+              See My Projects
             </a>
           </div>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
         <img
-        className="object-cover object-center rounded-full my-image w-60 h-61"
+        className="object-cover object-center rounded-full w-60 h-60 rotate-90"
         alt="Me"
         src="/Profile.png"
         />

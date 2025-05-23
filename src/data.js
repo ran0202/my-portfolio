@@ -1,5 +1,64 @@
 // src/data.js
 
+export const education = [
+    {
+      degree: "Bachelor of Science in Information Technology",
+      institution: "Madridejos Community College, Madridejos Cebu",
+      duration: "May 2014 – March 2018"
+    }
+  ];
+  
+export const employment = [
+    {
+      position: "Admin Assistant",
+      company: "MRJ Land Developers Corporation",
+      duration: "September 2018 – January 2019",
+      responsibilities: [
+        "Prepares office correspondences as required",
+        "Answering phone calls",
+        "Depositing cash and checks",
+        "Schedules meetings and supports visitors",
+        "Buying office supplies",
+        "Creates liquidation reports using Excel and Word with VLOOKUP & Pivot"
+      ]
+    },
+    {
+      position: "Office Staff/Encoder – ISPD",
+      company: "M. Lhuillier Financial Services Inc.",
+      duration: "February 2019 – March 2023",
+      responsibilities: [
+        "Monitor and manage branch sales",
+        "Generate monthly sales reports using Excel with VLOOKUP & Pivot",
+        "Answer phone calls from branches",
+        "Resolve branch-level issues efficiently"
+      ]
+    },
+    {
+      position: "Computer Technician / IT Asset Monitoring – MMD",
+      company: "M. Lhuillier Financial Services Inc.",
+      duration: "February 2023 – March 2023",
+      responsibilities: [
+        "Coordinate shipments of IT assets (VISMIN)",
+        "Sticker, label, and pack computers and peripherals",
+        "Perform QA on IT equipment",
+        "Troubleshoot division computers",
+        "Conduct self-audit inventories and train new staff"
+      ]
+    },
+    {
+      position: "Research and Development Associate",
+      company: "WealthBank",
+      duration: "July 2023 – Present",
+      responsibilities: [
+        "Assist in app integration and modification of specifications",
+        "Coordinate with clients and development team",
+        "Design, test, and debug software systems",
+        "Maintain list of innovation and R&D projects",
+        "Provide technical advice and implementation support"
+      ]
+    }
+  ];
+  
 export const projects = [
     {
         title: "E-Leave",
@@ -53,6 +112,13 @@ export const developerSkills = [
     "Scheduling & Calendar Management",
     "Email Communication",
     "Document Management",
+  ];
+  
+  export const hobbies = [
+    "Playing Basketball",
+    "Playing Online Games",
+    "Reading Books",
+    "Watching Anime"
   ];
   
 //   export const testimonials = [
