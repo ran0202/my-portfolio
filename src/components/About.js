@@ -35,7 +35,7 @@ export default function About() {
         <img
         className="object-cover object-center rounded-full my-image w-60 h-61"
         alt="Me"
-        src="/IMG_9205.jpg"
+        src="/Profile.png"
         />
         </div>
       </div>
