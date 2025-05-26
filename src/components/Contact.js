@@ -6,6 +6,7 @@ export default function Contact() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [botField, setBotField] = React.useState(""); // honeypot field
 
   function encode(data) {
     return Object.keys(data)
@@ -17,12 +18,21 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    // If botField is filled, do nothing (spam protection)
+    if (botField) return;
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", name, email, message }),
     })
-      .then(() => alert("Message sent!"))
+      .then(() => {
+        alert("Message sent!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      })
       .catch((error) => alert(error));
   }
 
@@ -55,7 +65,10 @@ export default function Contact() {
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 EMAIL
               </h2>
-              <a href="mailto:nulfoducay@gmail.com" className="text-indigo-400 leading-relaxed">
+              <a
+                href="mailto:nulfoducay@gmail.com"
+                className="text-indigo-400 leading-relaxed"
+              >
                 nulfoducay@gmail.com
               </a>
               <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
@@ -65,25 +78,46 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
         <form
           name="contact"
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
-          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-          {/* ✅ Hidden form-name field (needed for Netlify) */}
+          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+        >
           <input type="hidden" name="form-name" value="contact" />
 
-          {/* ✅ Honeypot field for spam protection */}
-          <input type="hidden" name="bot-field" />
+          {/* Honeypot field for bots */}
+          <p className="hidden">
+            <label>
+              Don’t fill this out if you're human:{" "}
+              <input
+                name="bot-field"
+                value={botField}
+                onChange={(e) => setBotField(e.target.value)}
+              />
+            </label>
+          </p>
+
           <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me
           </h2>
           <p className="leading-relaxed mb-5 text-gray-300">
-            I'm passionate about crafting clean, efficient, and user-friendly web applications. Whether you need a dedicated front-end developer to build responsive and user-friendly web applications, an efficient IT asset manager to oversee hardware and software inventories, a meticulous data entry specialist to maintain accurate records, or an organized office staff member to streamline daily operations, I bring a versatile skill set and a strong work ethic to every role.  
-            I am committed to delivering high-quality results, improving workflows, and supporting your team’s success through both technical expertise and administrative proficiency. Let’s connect and discuss how I can contribute to your projects and business goals.
+            I'm passionate about crafting clean, efficient, and user-friendly web
+            applications. Whether you need a dedicated front-end developer to build
+            responsive and user-friendly web applications, an efficient IT asset
+            manager to oversee hardware and software inventories, a meticulous data
+            entry specialist to maintain accurate records, or an organized office
+            staff member to streamline daily operations, I bring a versatile skill
+            set and a strong work ethic to every role. I am committed to delivering
+            high-quality results, improving workflows, and supporting your team’s
+            success through both technical expertise and administrative proficiency.
+            Let’s connect and discuss how I can contribute to your projects and
+            business goals.
           </p>
+
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-400">
               Name
@@ -92,8 +126,10 @@ export default function Contact() {
               type="text"
               id="name"
               name="name"
-              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              value={name}
               onChange={(e) => setName(e.target.value)}
+              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              required
             />
           </div>
           <div className="relative mb-4">
@@ -104,26 +140,29 @@ export default function Contact() {
               type="email"
               id="email"
               name="email"
-              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              required
             />
           </div>
           <div className="relative mb-4">
-            <label
-              htmlFor="message"
-              className="leading-7 text-sm text-gray-400">
+            <label htmlFor="message" className="leading-7 text-sm text-gray-400">
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              value={message}
               onChange={(e) => setMessage(e.target.value)}
+              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              required
             />
           </div>
           <button
             type="submit"
-            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          >
             Submit
           </button>
         </form>
