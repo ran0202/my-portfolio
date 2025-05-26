@@ -1,5 +1,3 @@
-<!-- public/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,11 +8,13 @@
   </head>
   <body>
 
-    <!-- ✅ Hidden Netlify form goes here -->
+    <!-- ✅ Hidden Netlify form for form detection & honeypot spam protection -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
     </form>
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
