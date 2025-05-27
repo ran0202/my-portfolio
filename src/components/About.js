@@ -39,9 +39,9 @@ export default function About() {
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex justify-center">
         <img
-        className="object-cover object-center rounded-full w-60 h-62 md:w-76 md:h-78 border-4 border-gray-100 shadow-lg hover:rotate-6 transition-transform duration-300"
-        alt="Me"
-        src="/Profile.png"
+          className="object-cover object-top rounded-full w-60 h-60 md:w-76 md:h-76 border-4 border-gray-100 shadow-lg transform scale-105 hover:rotate-6 transition-transform duration-300"
+          alt="Me"
+          src="/pic.png"
         />
         </div>
       </div>
